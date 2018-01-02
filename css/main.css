@@ -11,9 +11,9 @@ header{
     position: relative;
 }
 .line_menu{
- height: auto;
- width: 100%; 
- display: block;
+   height: auto;
+   width: 100%; 
+   display: block;
 }
 .line_menu .line{
     height: 5px;
@@ -50,20 +50,35 @@ header{
     background-image: none;
     border-color: #F37435;
 }
-#formPesquisaProduto input::placeholder, #formNewsletter input::placeholder {
+#formPesquisaProduto input::placeholder{
   color: #fff;
 }
-#formPesquisaProduto input::-webkit-input-placeholder, #formNewsletter input::-webkit-input-placeholder {
+#formPesquisaProduto input::-webkit-input-placeholder{
   color: #fff;
 }
-#formPesquisaProduto input::-moz-placeholder, #formNewsletter input::-moz-placeholder { 
+#formPesquisaProduto input::-moz-placeholder{ 
   color: #fff;
 }
-#formPesquisaProduto input:-ms-input-placeholder, #formNewsletter input:-ms-input-placeholder { 
+#formPesquisaProduto input:-ms-input-placeholder{ 
   color: #fff;
 }
-#formPesquisaProduto input:-moz-placeholder, #formNewsletter input:-moz-placeholder{ 
+#formPesquisaProduto input:-moz-placeholder{ 
   color: #fff;
+}
+#formNewsletter input::placeholder{
+    color: #F37435;
+}
+#formNewsletter input::-webkit-input-placeholder {
+    color: #F37435;
+}
+#formNewsletter input::-moz-placeholder {
+    color: #F37435;
+}
+#formNewsletter input:-ms-input-placeholder{
+    color: #F37435;
+}
+#formNewsletter input:-moz-placeholder{
+    color: #F37435;
 }
 .social-media{
     float: right;
@@ -151,9 +166,6 @@ header .navbar-brand{
     text-transform: uppercase;
     font-size: 16px;
 }
-.navbar-collapse{
-
-}
 .banner_home{
     position: relative;
     top: 0;
@@ -166,8 +178,9 @@ header .navbar-brand{
     /*position: absolute;*/
     top: 0;
     left: 0;
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 .img-produto{
     width: 100%;
@@ -179,12 +192,12 @@ header .navbar-brand{
 .produto01{
     background: url(../img/estufas-fundo.png);
     width: auto;
-    height: 100vh;
+    min-height: 100vh;
     background-position: left;
 }
 .produto01-frente{
     width: auto;
-    height: 100vh;
+    min-height: 100vh;
     background: url(../img/estufas-frente.png);
     background-position: left;
 
@@ -192,32 +205,37 @@ header .navbar-brand{
 .produto02{
     background: url(../img/sf-fundo.png);
     width: auto;
-    height: 100vh;
+    min-height: 100vh;
     background-position: right;
 }
 .produto02-frente{
     width: auto;
-    height: 100vh;
+    min-height: 100vh;
     background: url(../img/sf-frente.png);
     background-position: right;
 
 }
 .bg-parallax{
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100vw 100vh;
     background-attachment: fixed;
 }
 .content-produto{
     display: flex;
     justify-content: flex-end;
 }
+.content-produto.inverse{
+    justify-content: flex-start;
+}
 .content{
     padding: 20px;
-    width: 60%;
-    max-width: 640px;
+    width: 50%;
+    /*max-width: 640px;*/
 }
 .subproduto{
     padding: 1%;
+    box-shadow: 0 0 8px #dedede;
+    background-color: rgba(255,255,255,.7);
 }
 .content > h2{
     font-size: 2.5rem;
@@ -231,7 +249,7 @@ h2.section-title:before, h2.section-title:after{
     background-color: #F37435;
     position: absolute;
     bottom: -5px;
-    width: 10%;
+    width: 20%;
     
 }
 h2.section-title:before{
@@ -266,6 +284,16 @@ h2.section-title:after{
 #newsletter{
     padding: 50px 0;
 }
+#newsletter .form-group{
+    width: 60%;
+    min-width: 250px;
+    margin: 0 auto;
+}
+#newsletter button{
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
 .color_line{
     height: 5px;
     width: 100%;
@@ -291,6 +319,10 @@ footer nav{
 footer > .content-footer{
     min-height: 50vh;
 }
+footer .content-footer .row > div:last-child .row{
+    margin-bottom: 30px;
+    justify-content: center;
+}
 .content-footer > div{
     display: flex;
     flex-direction: column;
@@ -298,10 +330,10 @@ footer > .content-footer{
     height: 50vh;
 }
 .nav-footer{
-   display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
-   height: 250px;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+ height: 250px;
 }
 .nav-footer li{
     padding: 10px;
@@ -310,7 +342,10 @@ footer > .content-footer{
     color: #fff;
 }
 footer .social-media{
-    margin: 0 auto;
+    margin: 0 auto; 
+}
+footer ul{
+    padding: 0;
 }
 footer img{
     max-width: 100%;
@@ -323,7 +358,13 @@ footer img{
     padding: 15px;
     margin: 0;
 }
+footer .social-media .fa{
+        font-size: 30px;
+    }
 /*Responsive things*/
+@media (max-width: 1200px){
+
+}
 @media (max-width: 991px){
     .navbar-collapse{
         padding-left: 200px;
@@ -332,12 +373,40 @@ footer img{
         width: auto;
         z-index: -1;
         right: 0px;
-        top: 5px;
+        top: -7px;
         padding: 50px 40px;
     }
+    footer .nav-footer a{
+        font-size: 15px;
+    }
+    footer .social-media .fa{
+        font-size: 25px;
+    }
+
 }
 @media (max-width: 768px){
     .line_menu .content-hidden{
         display: none;
+    }
+    .navbar-collapse, .navbar-toggler{
+        top: -55px;
+        text-align: right;
+    }
+    .bg-parallax{
+        background-size: auto 100vh;
+    }
+    .content-produto{
+        justify-content: flex-start;
+    }
+    .content-produto.inverse{
+        justify-content: flex-end;
+    }
+    .content-footer > div{
+        height: auto;
+    }
+}
+@media (max-width: 576px){
+    .content{
+        width: 100%;
     }
 }
